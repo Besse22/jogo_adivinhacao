@@ -1,16 +1,29 @@
 print("*********************************")
-print("Bem vindo no jogo de Adivinhação!")
+print("Bem vindo ao jogo de Adivinhação!")
 print("*********************************")
 
 numero_secreto = 42
+total_de_tentativas = 3
+rodada = 1
 
-chute_str = input("Digite o seu número: ")
+while(rodada <= total_de_tentativas > 0):
+    print("Tentativa {} de {}".format(rodada, total_de_tentativas))
+    chute_str = input("Digite o seu número: ")
+    print("Você digitou " , chute_str)
+    chute = int(chute_str)
 
-print("Você digitou", chute_str)
+    acertou = chute == numero_secreto
+    maior = chute > numero_secreto
+    menor = chute < numero_secreto
 
-chute = int(chute_str)
+    if(acertou):
+        print("Parabéns! Você acertou!")
+    else:
+        if(maior):
+            print("O seu chute foi maior do que o número secreto!")
+        elif(menor):
+            print("O seu chute foi menor do que o número secreto!")
 
-if(numero_secreto == chute):
-    print("Você acertou")
-else:
-    print("Você errou")
+    rodada = rodada + 1
+
+    print("Fim de jogo!")
